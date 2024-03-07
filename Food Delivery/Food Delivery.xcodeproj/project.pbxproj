@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		161D13F82B99D78300A24819 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D13F72B99D78300A24819 /* Coordinator.swift */; };
+		161D13FA2B99DB2D00A24819 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D13F92B99DB2D00A24819 /* AppCoordinator.swift */; };
+		161D13FC2B99DD9000A24819 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D13FB2B99DD9000A24819 /* OnboardingCoordinator.swift */; };
 		167270A52B9905DA00D21FA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167270A42B9905DA00D21FA7 /* AppDelegate.swift */; };
 		167270A72B9905DA00D21FA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167270A62B9905DA00D21FA7 /* SceneDelegate.swift */; };
 		167270A92B9905DA00D21FA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167270A82B9905DA00D21FA7 /* ViewController.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		161D13F72B99D78300A24819 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		161D13F92B99DB2D00A24819 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		161D13FB2B99DD9000A24819 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		167270A12B9905DA00D21FA7 /* Food Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Delivery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		167270A42B9905DA00D21FA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		167270A62B9905DA00D21FA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				161D13F72B99D78300A24819 /* Coordinator.swift */,
+				161D13F92B99DB2D00A24819 /* AppCoordinator.swift */,
+				161D13FB2B99DD9000A24819 /* OnboardingCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -274,6 +280,8 @@
 				167270A52B9905DA00D21FA7 /* AppDelegate.swift in Sources */,
 				167270DA2B990E0B00D21FA7 /* UIFont+Extension.swift in Sources */,
 				167270DF2B99109700D21FA7 /* AppColors.swift in Sources */,
+				161D13FC2B99DD9000A24819 /* OnboardingCoordinator.swift in Sources */,
+				161D13FA2B99DB2D00A24819 /* AppCoordinator.swift in Sources */,
 				167270A72B9905DA00D21FA7 /* SceneDelegate.swift in Sources */,
 				167270DC2B99104300D21FA7 /* UIColor+Extension.swift in Sources */,
 				161D13F82B99D78300A24819 /* Coordinator.swift in Sources */,

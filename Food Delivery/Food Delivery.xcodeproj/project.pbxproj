@@ -10,6 +10,11 @@
 		161D13F82B99D78300A24819 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D13F72B99D78300A24819 /* Coordinator.swift */; };
 		161D13FA2B99DB2D00A24819 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D13F92B99DB2D00A24819 /* AppCoordinator.swift */; };
 		161D13FC2B99DD9000A24819 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D13FB2B99DD9000A24819 /* OnboardingCoordinator.swift */; };
+		161D13FE2B99EF0900A24819 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D13FD2B99EF0900A24819 /* HomeCoordinator.swift */; };
+		161D14002B99EF4F00A24819 /* OrderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D13FF2B99EF4F00A24819 /* OrderCoordinator.swift */; };
+		161D14022B99EF6500A24819 /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D14012B99EF6500A24819 /* ListCoordinator.swift */; };
+		161D14042B99EF7A00A24819 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D14032B99EF7A00A24819 /* ProfileCoordinator.swift */; };
+		161D14062B99EF9500A24819 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161D14052B99EF9500A24819 /* TabBarController.swift */; };
 		167270A52B9905DA00D21FA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167270A42B9905DA00D21FA7 /* AppDelegate.swift */; };
 		167270A72B9905DA00D21FA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167270A62B9905DA00D21FA7 /* SceneDelegate.swift */; };
 		167270A92B9905DA00D21FA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167270A82B9905DA00D21FA7 /* ViewController.swift */; };
@@ -37,6 +42,11 @@
 		161D13F72B99D78300A24819 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		161D13F92B99DB2D00A24819 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		161D13FB2B99DD9000A24819 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		161D13FD2B99EF0900A24819 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		161D13FF2B99EF4F00A24819 /* OrderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCoordinator.swift; sourceTree = "<group>"; };
+		161D14012B99EF6500A24819 /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
+		161D14032B99EF7A00A24819 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		161D14052B99EF9500A24819 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		167270A12B9905DA00D21FA7 /* Food Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Delivery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		167270A42B9905DA00D21FA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		167270A62B9905DA00D21FA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +95,7 @@
 		161D13F52B99D66C00A24819 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				161D14052B99EF9500A24819 /* TabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -95,6 +106,10 @@
 				161D13F72B99D78300A24819 /* Coordinator.swift */,
 				161D13F92B99DB2D00A24819 /* AppCoordinator.swift */,
 				161D13FB2B99DD9000A24819 /* OnboardingCoordinator.swift */,
+				161D13FD2B99EF0900A24819 /* HomeCoordinator.swift */,
+				161D13FF2B99EF4F00A24819 /* OrderCoordinator.swift */,
+				161D14012B99EF6500A24819 /* ListCoordinator.swift */,
+				161D14032B99EF7A00A24819 /* ProfileCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -282,7 +297,12 @@
 				167270DF2B99109700D21FA7 /* AppColors.swift in Sources */,
 				161D13FC2B99DD9000A24819 /* OnboardingCoordinator.swift in Sources */,
 				161D13FA2B99DB2D00A24819 /* AppCoordinator.swift in Sources */,
+				161D14002B99EF4F00A24819 /* OrderCoordinator.swift in Sources */,
 				167270A72B9905DA00D21FA7 /* SceneDelegate.swift in Sources */,
+				161D14042B99EF7A00A24819 /* ProfileCoordinator.swift in Sources */,
+				161D14022B99EF6500A24819 /* ListCoordinator.swift in Sources */,
+				161D13FE2B99EF0900A24819 /* HomeCoordinator.swift in Sources */,
+				161D14062B99EF9500A24819 /* TabBarController.swift in Sources */,
 				167270DC2B99104300D21FA7 /* UIColor+Extension.swift in Sources */,
 				161D13F82B99D78300A24819 /* Coordinator.swift in Sources */,
 			);

@@ -16,8 +16,6 @@ enum CoordinatorType {
     case profile
 }
 
-//MARK: - Protocols
-
 protocol CoordinatorProtocol: AnyObject {
     var childCoordinators: [CoordinatorProtocol] { get set }
     var type: CoordinatorType { get }
@@ -28,16 +26,6 @@ protocol CoordinatorProtocol: AnyObject {
     func finish()
 }
 
-protocol CoordinatorFinishDelegate: AnyObject {
-    func coordinatorDidFinish(childCoordinators: CoordinatorProtocol)
-}
-
-protocol TabBarCoordinator: AnyObject, CoordinatorProtocol {
-    var tabBarController: UITabBarController? { get set }
-}
-
-//MARK: - Extension
-
 extension CoordinatorProtocol {
     func addChildCoordinator(_ childCoordinator: CoordinatorProtocol) {
         childCoordinators.append(childCoordinator)
@@ -45,6 +33,14 @@ extension CoordinatorProtocol {
     func removeChildCoordinator(_ childCoordinator: CoordinatorProtocol) {
         childCoordinators = childCoordinators.filter{ $0 !== childCoordinator }
     }
+}
+
+protocol CoordinatorFinishDelegate: AnyObject {
+    func coordinatorDidFinish(childCoordinator: CoordinatorProtocol)
+}
+
+protocol TabBarCoordinator: AnyObject, CoordinatorProtocol {
+    var tabBarController: UITabBarController? { get set }
 }
 
 

@@ -39,7 +39,7 @@ class FDBottomView: UIView {
     private func setupLabel() {
         self.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Or connect with"
+        label.text = "The taste starts here"
         label.font = .Roboto.regular.size(of: 14)
         label.textColor = AppColors.green
         

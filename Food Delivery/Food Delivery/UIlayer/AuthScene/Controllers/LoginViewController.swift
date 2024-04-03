@@ -1,3 +1,11 @@
+
+//
+//  LoginViewController.swift
+//  Food Delivery
+//
+//  Created by Tanya on 11.03.2024.
+//
+
 import UIKit
 
 enum LoginViewState {
@@ -7,18 +15,16 @@ enum LoginViewState {
 }
 
 protocol LoginViewInput: AnyObject {
-    func onSignInTapped()
-    func onSignUpTapped()
-    func onFacebookTapped()
-    func onGoogleTapped()
-    func onForgotTapped()
-    func onBackPressed()
+    func startLoader()
+    func stopLoader()
 }
 
 class LoginViewController: UIViewController {
     
     // MARK: - Properties
     private var state: LoginViewState = .initial
+    private var keyboardIsShown = false
+    private var stackBottomValue = 0.0
     var viewOutput: LoginViewOutput!
     
     // MARK: - Views
@@ -34,6 +40,9 @@ class LoginViewController: UIViewController {
     private lazy var signInButton = FDButton()
     private lazy var signUpButton = FDButton()
     private lazy var verticalStack = UIStackView()
+    private lazy var stackBottomCT = NSLayoutConstraint()
+    private lazy var loader = UIActivityIndicatorView(style: .large)
+    private lazy var loaderContainer = UIView()
     
     
     // MARK: - Initializers
@@ -47,20 +56,24 @@ class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        stopKeyboardListener()
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColors.grey
         setupLayout()
-    
+        setupObservers()
     }
 
-//    func facebookPress() {
-//        print("facebook")
-//    }
-//    func googlePress() {
-//        print("google")
-//    }
+    func facebookPress() {
+        print("facebook")
+    }
+    func googlePress() {
+        print("google")
+    }
     
 
 }
@@ -92,8 +105,9 @@ private extension LoginViewController {
             setupSignInButton()
             setupForgotLabel()
         }
-
+        setupLoaderView()
     }
+
     func setupStack() {
         view.addSubview(verticalStack)
         verticalStack.translatesAutoresizingMaskIntoConstraints = false
@@ -107,18 +121,24 @@ private extension LoginViewController {
             verticalStack.addArrangedSubview(signInUsername)
             verticalStack.addArrangedSubview(signInPassword)
             
+            stackBottomValue = -262.0
+            stackBottomCT = verticalStack.bottomAnchor.constraint(equalTo: bottomView.topAnchor, constant: stackBottomValue)
+            
             NSLayoutConstraint.activate([
                 verticalStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                verticalStack.bottomAnchor.constraint(equalTo: bottomView.topAnchor, constant: -262)
+                stackBottomCT
             ])
         case .signUp:
             verticalStack.addArrangedSubview(signUpUsername)
             verticalStack.addArrangedSubview(signUpPassword)
             verticalStack.addArrangedSubview(signUpReEnterPass)
             
+            stackBottomValue = -227.0
+            stackBottomCT = verticalStack.bottomAnchor.constraint(equalTo: bottomView.topAnchor, constant: stackBottomValue)
+            
             NSLayoutConstraint.activate([
                 verticalStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                verticalStack.bottomAnchor.constraint(equalTo: bottomView.topAnchor, constant: -227)
+                stackBottomCT
             ])
         }
 
@@ -127,9 +147,9 @@ private extension LoginViewController {
         view.addSubview(bottomView)
         bottomView.translatesAutoresizingMaskIntoConstraints = false
         
-//        bottomView.button2Action = facebookPress
-//        bottomView.button1Action = googlePress
-//        
+        bottomView.button2Action = facebookPress
+        bottomView.button1Action = googlePress
+        
         NSLayoutConstraint.activate([
             bottomView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             bottomView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
@@ -287,10 +307,68 @@ private extension LoginViewController {
             signUpReEnterPass.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    func setupLoaderView() {
+        view.addSubview(loaderContainer)
+        loaderContainer.translatesAutoresizingMaskIntoConstraints = false
+        loaderContainer.backgroundColor = AppColors.black.withAlphaComponent(0.3)
+        loaderContainer.isHidden = true
+        
+        NSLayoutConstraint.activate([
+            loaderContainer.widthAnchor.constraint(equalTo: view.widthAnchor),
+            loaderContainer.heightAnchor.constraint(equalTo: view.heightAnchor)
+        ])
+        
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        loaderContainer.addSubview(loader)
+        
+        NSLayoutConstraint.activate([
+            loader.centerXAnchor.constraint(equalTo: loaderContainer.centerXAnchor),
+            loader.centerYAnchor.constraint(equalTo: loaderContainer.centerYAnchor)
+        ])
+    }
 }
 
-// MARK: - LoginViewInput delegate
-extension LoginViewController: LoginViewInput {
+// MARK: - Keyboard Observers
+private extension LoginViewController {
+    func setupObservers() {
+        startKeyboardListener()
+    }
+    func startKeyboardListener() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+    func stopKeyboardListener() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardHeight = keyboardFrame.cgRectValue.height
+        
+        if !keyboardIsShown {
+            UIView.animate(withDuration: 0.3) {
+                self.stackBottomCT.constant -= keyboardHeight/4
+                self.view.layoutIfNeeded()
+                self.keyboardIsShown = true
+            }
+        }
+    }
+    @objc func keyboardWillHide(_ notification: Notification) {
+        UIView.animate(withDuration: 0.3) {
+            self.stackBottomCT.constant = self.stackBottomValue
+            self.keyboardIsShown = false
+            self.view.layoutIfNeeded()
+        }
+    }
+}
+
+// MARK: - Private methods
+private extension LoginViewController {
     func onBackPressed() {
         
     }
@@ -300,7 +378,7 @@ extension LoginViewController: LoginViewInput {
         case .initial:
             viewOutput.goToSignIn()
         case .signIn:
-            return
+            viewOutput.loginStart(login: signInUsername.text ?? "", password: signInPassword.text ?? "")
         case .signUp:
             return
         }
@@ -328,6 +406,21 @@ extension LoginViewController: LoginViewInput {
     func onForgotTapped() {
         
     }
-    
 }
 
+// MARK: - LoginViewInput delegate
+extension LoginViewController: LoginViewInput {
+    func startLoader() {
+        loaderContainer.isHidden = false
+        loader.startAnimating()
+    }
+    
+    func stopLoader() {
+        loaderContainer.isHidden = true
+        loader.stopAnimating()
+    }
+}
+
+//#Preview("LoginVC") {
+//    LoginViewController(viewOutput: LoginPresenter(), state: .signUp)
+//}

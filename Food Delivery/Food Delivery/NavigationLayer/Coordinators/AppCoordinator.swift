@@ -28,7 +28,7 @@ class AppCoordinator: Coordinator {
 }
 
 // MARK: - Navigation methods
-private extension AppCoordinator {
+ extension AppCoordinator {
     func showOnboardingFlow() {
         guard let navigationController = navigationController else { return }
         factory.makeOnboardingFlow(coordinator: self, finishDelegate: self, navigationController: navigationController)
@@ -42,6 +42,9 @@ private extension AppCoordinator {
         guard let navigationController = navigationController else { return }
         let vc = factory.makeAuthScene(coordinator: self)
         navigationController.pushViewController(vc, animated: true)
+    }
+    func showMainScene(){
+        showAuthFlow()
     }
 }
 

@@ -44,7 +44,7 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     func showMainScene(){
-        showAuthFlow()
+        showMainFlow()
     }
 }
 

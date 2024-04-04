@@ -60,7 +60,7 @@ struct SceneFactory {
         
         let homeNavigationController = UINavigationController()
         let homeCoordinator = HomeCoordinator(type: .home, navigationController: homeNavigationController)
-        homeNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage.init(systemName: "homekit"), tag: 0)
+        homeNavigationController.tabBarItem = UITabBarItem(title: "Home", image: UIImage.init(systemName: "house"), tag: 0)
         homeCoordinator.finishDelegate = finishDelegate
         homeCoordinator.start()
         
@@ -96,16 +96,19 @@ struct SceneFactory {
     static func makeAuthScene(coordinator: AppCoordinator) -> LoginViewController {
         let presenter = LoginPresenter(coordinator: coordinator)
         let controller = LoginViewController(viewOutput: presenter, state: .initial)
+        presenter.viewInput = controller
         return controller
     }
     static func makeSignInScene(coordinator: AppCoordinator) -> LoginViewController {
         let presenter = LoginPresenter(coordinator: coordinator)
         let controller = LoginViewController(viewOutput: presenter, state: .signIn)
+        presenter.viewInput = controller
         return controller
     }
     static func makeSignUpScene(coordinator: AppCoordinator) -> LoginViewController {
         let presenter = LoginPresenter(coordinator: coordinator)
         let controller = LoginViewController(viewOutput: presenter, state: .signUp)
+        presenter.viewInput = controller
         return controller
     }
     

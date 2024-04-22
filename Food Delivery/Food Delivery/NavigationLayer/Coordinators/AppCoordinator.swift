@@ -14,11 +14,12 @@ class AppCoordinator: Coordinator {
     private let factory = SceneFactory.self
     
     override func start() {
-        if userStorage.passedOnboarding {
-            showAuthFlow()
-        } else {
-            showOnboardingFlow()
-        }
+//        if userStorage.passedOnboarding {
+//            showAuthFlow()
+//        } else {
+//            showOnboardingFlow()
+//        }
+        showMainFlow()
     }
     
     override func finish() {
@@ -57,11 +58,13 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         
         switch childCoordinator.type {
         case .onboarding:
-            navigationController?.viewControllers.removeAll()
             showAuthFlow()
+            navigationController?.viewControllers =
+            [navigationController?.viewControllers.last ?? UIViewController()]
         case .login:
-            navigationController?.viewControllers.removeAll()
             showMainFlow()
+            navigationController?.viewControllers =
+            [navigationController?.viewControllers.last ?? UIViewController()]
         case .app:
             return
         default:

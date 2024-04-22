@@ -43,6 +43,7 @@
 		167270DA2B990E0B00D21FA7 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167270D92B990E0B00D21FA7 /* UIFont+Extension.swift */; };
 		167270DC2B99104300D21FA7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167270DB2B99104300D21FA7 /* UIColor+Extension.swift */; };
 		167270DF2B99109700D21FA7 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167270DE2B99109700D21FA7 /* AppColors.swift */; };
+		168684D32BD670D50065DBC4 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168684D22BD670D50065DBC4 /* LoginCoordinator.swift */; };
 		16EB77E92B9F58A2007C77CA /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EB77E82B9F58A2007C77CA /* LoginPresenter.swift */; };
 		16EB77EB2B9F58BA007C77CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EB77EA2B9F58BA007C77CA /* LoginViewController.swift */; };
 		16EB77ED2B9F58E6007C77CA /* FDBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EB77EC2B9F58E6007C77CA /* FDBottomView.swift */; };
@@ -87,6 +88,7 @@
 		167270D92B990E0B00D21FA7 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		167270DB2B99104300D21FA7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		167270DE2B99109700D21FA7 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		168684D22BD670D50065DBC4 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		16EB77E82B9F58A2007C77CA /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		16EB77EA2B9F58BA007C77CA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		16EB77EC2B9F58E6007C77CA /* FDBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDBottomView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				161D13F72B99D78300A24819 /* Coordinator.swift */,
 				161D13F92B99DB2D00A24819 /* AppCoordinator.swift */,
 				161D13FB2B99DD9000A24819 /* OnboardingCoordinator.swift */,
+				168684D22BD670D50065DBC4 /* LoginCoordinator.swift */,
 				161D13FD2B99EF0900A24819 /* HomeCoordinator.swift */,
 				161D13FF2B99EF4F00A24819 /* OrderCoordinator.swift */,
 				161D14012B99EF6500A24819 /* ListCoordinator.swift */,
@@ -426,6 +429,7 @@
 				161D13FE2B99EF0900A24819 /* HomeCoordinator.swift in Sources */,
 				162F4D7C2B9E44FB0030A4D5 /* FDBotton.swift in Sources */,
 				162F4D762B9E406D0030A4D5 /* OnboardingPartViewController.swift in Sources */,
+				168684D32BD670D50065DBC4 /* LoginCoordinator.swift in Sources */,
 				162F4D6E2B9E1A230030A4D5 /* OnboadringViewController.swift in Sources */,
 				161D14062B99EF9500A24819 /* TabBarController.swift in Sources */,
 				167270DC2B99104300D21FA7 /* UIColor+Extension.swift in Sources */,
